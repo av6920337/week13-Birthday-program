@@ -1,0 +1,34 @@
+html {
+	background: linear-gradient(90deg, #cceecc,#eeeeee);
+	min-height: 100%;
+}
+.header,.main{
+    display: flex;
+    justify-content: center;
+}
+
+.birthday,.btn{
+    background-color: #99CCFF;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#ffffff;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator{
+    background-color: #ffffff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.btn{
+    box-shadow: 0px 0px 12px -2px rgba(61, 86, 247, 0.5);
+    line-height: 1.25;
+    text-decoration: none;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    overflow: hidden;
+    margin-left:15px ;
+}
