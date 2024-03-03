@@ -31,4 +31,9 @@ html {
     text-transform: uppercase;
     overflow: hidden;
     margin-left:15px ;
+    cursor: pointer;
+}
+.error-message {
+    color: red;
+    display: none;
 }
