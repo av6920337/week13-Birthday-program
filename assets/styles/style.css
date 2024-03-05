@@ -36,4 +36,5 @@ html {
 .error-message {
     color: red;
     display: none;
+    justify-content: center;
 }

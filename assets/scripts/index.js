@@ -6,57 +6,31 @@ const errorMessage = document.querySelector('.error-message');
 function daysUntilBirthday(){
     let currentDate=new Date();
     let birthdayDate=new Date(birthdayInput.value);
-    let diffDaysUTC=(currentDate-birthdayDate)/(1000*60*60*24);
+    let diffDaysUTC=Math.round(Math.abs((currentDate.getTime()-birthdayDate.getTime())/(1000*3600*24)));
+
 if(!birthdayInput.value) {
-    errorMessage.style.display='block';
+    // errorMessage.style.display='block';
+    errorMessage.style.display='flex';
+    resultElement.style.display='none';
 } 
 else {
     errorMessage.style.display = 'none';
+    resultElement.style.display='flex';
+    resultElement.style.justifyContent = 'center';
 }
+
     let daysText;
-if(diffDaysUTC % 10==1 && diffDays !==11){
+if(diffDaysUTC % 10==1 && diffDaysUTC !==11){
     daysText='день';
 }
-else if([2,3,4].includes(diffDays%10) && ![12,13,14].includes(diffDays)){
+else if([2,3,4].includes(diffDaysUTC %10) && ![12,13,14].includes(diffDaysUTC)){
     daysText='дня';
 }
 else{
     daysText='дней';
     }
-    resultElement.textContent=(`До вашего дня рождения осталось ${diffDays} ${daysText}.`);
+    resultElement.textContent=(`До вашего дня рождения осталось ${diffDaysUTC} ${daysText}.`);
 }
 calculateButton.addEventListener('click',daysUntilBirthday);
 
 
-// function daycounting(){
-//     let birthdayDate=new Date(birthdayInput.value);
-//     let currentDate=new Date();
-//     let currentYear=currentDate.getFullYear();
-//     birthdayDate.setFullYear(currentYear);
-
-//     if (!birthdayInput.value) {
-//         errorMessage.style.display = 'block';
-//         resultElement.textContent = '';} 
-//         else {
-//         errorMessage.style.display = 'none';
-//         }
-
-//     let diffDays=Math.round(Math.abs(birthdayDate.getTime()-currentDate.getTime()/(1000*3600*24)));
-
-//     let daysText;
-//     if(diffDays%10==1 && diffDays !==11){
-//         daysText='день';
-//     }
-//     else if([2,3,4].includes(diffDays%10) && ![12,13,14].includes(diffDays)){
-//         daysText='дня';
-//     }
-//     else{
-//         daysText='дней';
-//     }
-//     resultElement.textContent=`До вашего дня рождения осталось ${diffDays} ${daysText}.`;
-// }
-
-
-// birthdayInput.addEventListener('input', function() {
-//     errorMessage.style.display = 'none';
-// });
